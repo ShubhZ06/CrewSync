@@ -29,7 +29,7 @@ export function AuthGuard({ children }: { children: ReactNode }) {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="h-12 w-12 animate-spin-slow border-4 border-black bg-[#F2CC8F]" />
+          <div className="h-12 w-12 animate-spin-slow border-4 border-black bg-[#ffd93d]" />
           <p className="font-heading text-xs font-black uppercase tracking-[0.25em] text-black">
             Loading…
           </p>

@@ -26,10 +26,10 @@ export default function ExpensesPage() {
         tone="yellow"
         eyebrow="Why"
       >
-        <div className="border-4 border-black bg-[#FAF9F5] p-5 neo-shadow-sm">
+        <div className="border-4 border-black bg-[#fffdf5] p-5 neo-shadow-sm">
           <p className="text-lg font-bold leading-relaxed text-black">
             Review spend trends and renewal pressure in one place{" "}
-            <span className="bg-[#E07A5F] px-2">before</span> pricing your next client scope.
+            <span className="bg-[#ff6b6b] px-2">before</span> pricing your next client scope.
           </p>
         </div>
       </PageSection>

@@ -7,7 +7,7 @@ const moduleLinks = [
     label: "Find Clients",
     detail: "Find and qualify leads from public listings.",
     why: "Intent chips filter listings by freelance-ready language before you pitch.",
-    tone: "bg-[#E07A5F]",
+    tone: "bg-[#ff6b6b]",
     num: "01",
     icon: "◉",
   },
@@ -16,7 +16,7 @@ const moduleLinks = [
     label: "Client Communication",
     detail: "Send client updates and status reports.",
     why: "Publish status reports and warning messages from one place.",
-    tone: "bg-[#F2CC8F]",
+    tone: "bg-[#ffd93d]",
     num: "02",
     icon: "✉",
   },
@@ -25,7 +25,7 @@ const moduleLinks = [
     label: "Contract Generator",
     detail: "Create and send agreements in minutes.",
     why: "Generate legally clear drafts with consistent structure so projects start quickly.",
-    tone: "bg-[#C3BEF7]",
+    tone: "bg-[#c4b5fd]",
     num: "03",
     icon: "📄",
   },
@@ -43,7 +43,7 @@ const moduleLinks = [
     label: "Settings",
     detail: "Manage profile and defaults.",
     why: "Set defaults once so every workflow starts your way.",
-    tone: "bg-[#E07A5F]",
+    tone: "bg-[#ff6b6b]",
     num: "05",
     icon: "⚙",
   },
@@ -60,7 +60,7 @@ export default function DashboardPage() {
       <section className="border-4 border-black bg-white neo-shadow-md">
         <header className="flex items-center justify-between border-b-4 border-black bg-black px-6 py-5 sm:px-8">
           <div>
-            <p className="font-heading text-xs font-black uppercase tracking-[0.3em] text-[#F2CC8F]">
+            <p className="font-heading text-xs font-black uppercase tracking-[0.3em] text-[#ffd93d]">
               Launcher
             </p>
             <h2 className="font-heading mt-1 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl">

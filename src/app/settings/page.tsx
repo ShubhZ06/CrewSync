@@ -248,11 +248,11 @@ export default function SettingsPage() {
           </div>
 
           {error ? (
-            <p className="border-[3px] border-black bg-[#E07A5F] px-4 py-3 text-sm font-bold text-black">⚠ {error}</p>
+            <p className="border-[3px] border-black bg-[#ff6b6b] px-4 py-3 text-sm font-bold text-black">⚠ {error}</p>
           ) : null}
 
           {success ? (
-            <p className="border-[3px] border-black bg-[#F2CC8F] px-4 py-3 text-sm font-bold text-black">✓ {success}</p>
+            <p className="border-[3px] border-black bg-[#ffd93d] px-4 py-3 text-sm font-bold text-black">✓ {success}</p>
           ) : null}
 
           <button

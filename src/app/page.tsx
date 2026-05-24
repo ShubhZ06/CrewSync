@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const modules = [
-  { label: "Dashboard", tone: "bg-[#E07A5F]" },
-  { label: "Find Clients", tone: "bg-[#F2CC8F]" },
-  { label: "Client Communication", tone: "bg-[#C3BEF7]" },
-  { label: "Contract Generator", tone: "bg-[#E07A5F]" },
-  { label: "Settings", tone: "bg-[#F2CC8F]" },
+  { label: "Dashboard", tone: "bg-[#ff6b6b]" },
+  { label: "Find Clients", tone: "bg-[#ffd93d]" },
+  { label: "Client Communication", tone: "bg-[#c4b5fd]" },
+  { label: "Contract Generator", tone: "bg-[#ff6b6b]" },
+  { label: "Settings", tone: "bg-[#ffd93d]" },
 ];
 
 const productStories = [
@@ -13,21 +13,21 @@ const productStories = [
     persona: "Solo Designer",
     challenge: "Losing 3–4 hours/week switching tabs and rewriting updates.",
     outcome: "Runs leads, contracts, and client updates in one flow. Ships faster.",
-    tone: "bg-[#E07A5F]",
+    tone: "bg-[#ff6b6b]",
     tilt: "-rotate-2",
   },
   {
     persona: "Fractional Marketer",
     challenge: "Client confidence drops when updates are delayed.",
     outcome: "Sends progress reports and warning nudges on schedule, every week.",
-    tone: "bg-[#F2CC8F]",
+    tone: "bg-[#ffd93d]",
     tilt: "rotate-1",
   },
   {
     persona: "Dev Consultant",
     challenge: "Project paperwork and signatures stall project starts.",
     outcome: "Generates contracts, tracks signing, starts billable work sooner.",
-    tone: "bg-[#C3BEF7]",
+    tone: "bg-[#c4b5fd]",
     tilt: "-rotate-1",
   },
 ];
@@ -52,9 +52,9 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
       {/* ===== LANDING NAV ===== */}
-      <header className="sticky top-0 z-40 border-b-4 border-black bg-[#FAF9F5]">
+      <header className="sticky top-0 z-40 border-b-4 border-black bg-[#fffdf5]">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 border-4 border-black bg-[#E07A5F] px-3 py-2 neo-shadow-sm">
+          <div className="inline-flex items-center gap-2 border-4 border-black bg-[#ff6b6b] px-3 py-2 neo-shadow-sm">
             <span className="font-heading text-lg uppercase tracking-tight text-black sm:text-xl">
               Crew Sync
             </span>
@@ -75,13 +75,13 @@ export default function Home() {
       </header>
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden border-b-4 border-black bg-[#FAF9F5]">
+      <section className="relative overflow-hidden border-b-4 border-black bg-[#fffdf5]">
         <div aria-hidden className="pointer-events-none absolute inset-0 pattern-grid opacity-50" />
 
         {/* Floating shapes */}
-        <div aria-hidden className="pointer-events-none absolute right-8 top-24 hidden h-20 w-20 rotate-12 border-4 border-black bg-[#F2CC8F] neo-shadow-sm md:block" />
-        <div aria-hidden className="pointer-events-none absolute bottom-28 left-12 hidden h-14 w-14 -rotate-12 rounded-full border-4 border-black bg-[#C3BEF7] md:block" />
-        <div aria-hidden className="pointer-events-none absolute right-[15%] bottom-16 hidden h-10 w-10 rotate-45 border-4 border-black bg-[#E07A5F] lg:block" />
+        <div aria-hidden className="pointer-events-none absolute right-8 top-24 hidden h-20 w-20 rotate-12 border-4 border-black bg-[#ffd93d] neo-shadow-sm md:block" />
+        <div aria-hidden className="pointer-events-none absolute bottom-28 left-12 hidden h-14 w-14 -rotate-12 rounded-full border-4 border-black bg-[#c4b5fd] md:block" />
+        <div aria-hidden className="pointer-events-none absolute right-[15%] bottom-16 hidden h-10 w-10 rotate-45 border-4 border-black bg-[#ff6b6b] lg:block" />
 
         <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-8 lg:py-32">
           {/* Left column — headline */}
@@ -95,14 +95,14 @@ export default function Home() {
 
             <h1 className="font-heading text-5xl font-black uppercase leading-[0.9] tracking-tighter text-black sm:text-7xl lg:text-8xl xl:text-9xl">
               <span className="inline-block -rotate-1">Run</span>{" "}
-              <span className="inline-block bg-[#E07A5F] px-3 py-1 text-shadow-hard text-white">
+              <span className="inline-block bg-[#ff6b6b] px-3 py-1 text-shadow-hard text-white">
                 client
               </span>
               <br />
               <span className="inline-block">work</span>{" "}
               <span className="text-stroke">without</span>
               <br />
-              <span className="inline-block rotate-1 bg-[#F2CC8F] px-3 py-1">
+              <span className="inline-block rotate-1 bg-[#ffd93d] px-3 py-1">
                 the chaos.
               </span>
             </h1>
@@ -125,11 +125,11 @@ export default function Home() {
             {/* Trust strip */}
             <div className="flex flex-wrap items-center gap-4 border-t-4 border-black pt-6">
               <div className="flex -space-x-2">
-                {["#E07A5F", "#F2CC8F", "#C3BEF7", "#000"].map((c, i) => (
+                {["#ff6b6b", "#ffd93d", "#c4b5fd", "#000"].map((c, i) => (
                   <span
                     key={c}
                     className="inline-flex h-10 w-10 items-center justify-center border-[3px] border-black font-heading text-xs font-black"
-                    style={{ background: c, color: c === "#000" ? "#F2CC8F" : "#000", zIndex: 4 - i }}
+                    style={{ background: c, color: c === "#000" ? "#ffd93d" : "#000", zIndex: 4 - i }}
                   >
                     {["A", "M", "K", "S"][i]}
                   </span>
@@ -157,10 +157,10 @@ export default function Home() {
             {/* Fake dashboard card */}
             <div className="absolute left-6 top-12 w-[360px] rotate-[-4deg] border-4 border-black bg-white neo-shadow-lg">
               <div className="flex items-center gap-2 border-b-4 border-black bg-black px-4 py-3">
-                <span className="h-3 w-3 rounded-full bg-[#E07A5F]" />
-                <span className="h-3 w-3 rounded-full bg-[#F2CC8F]" />
-                <span className="h-3 w-3 rounded-full bg-[#C3BEF7]" />
-                <span className="ml-auto font-heading text-[10px] font-black uppercase tracking-[0.25em] text-[#F2CC8F]">
+                <span className="h-3 w-3 rounded-full bg-[#ff6b6b]" />
+                <span className="h-3 w-3 rounded-full bg-[#ffd93d]" />
+                <span className="h-3 w-3 rounded-full bg-[#c4b5fd]" />
+                <span className="ml-auto font-heading text-[10px] font-black uppercase tracking-[0.25em] text-[#ffd93d]">
                   Dashboard
                 </span>
               </div>
@@ -175,7 +175,7 @@ export default function Home() {
                 <div className="h-[3px] bg-black" />
                 <div className="grid grid-cols-3 gap-2">
                   {[{ l: "Leads", v: "12" }, { l: "Sent", v: "04" }, { l: "Signed", v: "03" }].map((s) => (
-                    <div key={s.l} className="border-[3px] border-black bg-[#FAF9F5] px-2 py-2 text-center">
+                    <div key={s.l} className="border-[3px] border-black bg-[#fffdf5] px-2 py-2 text-center">
                       <p className="font-heading text-2xl font-black">{s.v}</p>
                       <p className="font-heading text-[9px] font-black uppercase tracking-widest">{s.l}</p>
                     </div>
@@ -185,7 +185,7 @@ export default function Home() {
             </div>
 
             {/* Sticker note */}
-            <div className="absolute right-8 top-40 w-[240px] rotate-[6deg] border-4 border-black bg-[#F2CC8F] p-4 neo-shadow-md">
+            <div className="absolute right-8 top-40 w-[240px] rotate-[6deg] border-4 border-black bg-[#ffd93d] p-4 neo-shadow-md">
               <p className="font-heading text-xs font-black uppercase tracking-[0.25em]">Contract #A-221</p>
               <p className="font-heading mt-2 text-2xl font-black leading-tight">
                 Signed by Acme Co.
@@ -195,13 +195,13 @@ export default function Home() {
 
             {/* Star badge */}
             <div className="absolute bottom-16 right-20 h-24 w-24 animate-spin-slow">
-              <div className="flex h-full w-full items-center justify-center border-4 border-black bg-[#E07A5F] font-heading text-xs font-black uppercase leading-tight text-black">
+              <div className="flex h-full w-full items-center justify-center border-4 border-black bg-[#ff6b6b] font-heading text-xs font-black uppercase leading-tight text-black">
                 <span>★ new ★</span>
               </div>
             </div>
 
             {/* Low note */}
-            <div className="absolute bottom-4 left-8 w-[260px] -rotate-2 border-4 border-black bg-[#C3BEF7] p-4 neo-shadow-md">
+            <div className="absolute bottom-4 left-8 w-[260px] -rotate-2 border-4 border-black bg-[#c4b5fd] p-4 neo-shadow-md">
               <p className="font-heading text-xs font-black uppercase tracking-[0.25em]">⚠ Renewal</p>
               <p className="mt-1 text-sm font-bold">Figma · $45/mo · 6 days</p>
             </div>
@@ -215,20 +215,20 @@ export default function Home() {
           <div className="animate-marquee flex shrink-0 items-center gap-8 pr-8">
             {[...marqueePhrases, ...marqueePhrases].map((phrase, i) => (
               <span key={`${phrase}-${i}`} className="flex items-center gap-8">
-                <span className="font-heading text-3xl font-black uppercase tracking-tight text-[#F2CC8F]">
+                <span className="font-heading text-3xl font-black uppercase tracking-tight text-[#ffd93d]">
                   {phrase}
                 </span>
-                <span className="text-3xl text-[#E07A5F]">★</span>
+                <span className="text-3xl text-[#ff6b6b]">★</span>
               </span>
             ))}
           </div>
           <div className="animate-marquee flex shrink-0 items-center gap-8 pr-8" aria-hidden>
             {[...marqueePhrases, ...marqueePhrases].map((phrase, i) => (
               <span key={`dup-${phrase}-${i}`} className="flex items-center gap-8">
-                <span className="font-heading text-3xl font-black uppercase tracking-tight text-[#F2CC8F]">
+                <span className="font-heading text-3xl font-black uppercase tracking-tight text-[#ffd93d]">
                   {phrase}
                 </span>
-                <span className="text-3xl text-[#E07A5F]">★</span>
+                <span className="text-3xl text-[#ff6b6b]">★</span>
               </span>
             ))}
           </div>
@@ -236,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* ===== MODULES ===== */}
-      <section className="relative border-b-4 border-black bg-[#C3BEF7] py-20 sm:py-28">
+      <section className="relative border-b-4 border-black bg-[#c4b5fd] py-20 sm:py-28">
         <div aria-hidden className="pointer-events-none absolute inset-0 pattern-halftone opacity-20" />
         <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -244,7 +244,7 @@ export default function Home() {
               <span className="neo-tag neo-tag-dark">What&apos;s Inside</span>
               <h2 className="font-heading mt-4 text-5xl font-black uppercase leading-[0.95] tracking-tighter text-black sm:text-6xl lg:text-7xl">
                 Five modules. <br />
-                <span className="bg-black px-3 text-[#F2CC8F]">One mission.</span>
+                <span className="bg-black px-3 text-[#ffd93d]">One mission.</span>
               </h2>
             </div>
             <p className="max-w-sm text-lg font-bold text-black">
@@ -271,13 +271,13 @@ export default function Home() {
       </section>
 
       {/* ===== FEATURES ===== */}
-      <section className="relative border-b-4 border-black bg-[#FAF9F5] py-20 sm:py-28">
+      <section className="relative border-b-4 border-black bg-[#fffdf5] py-20 sm:py-28">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="neo-tag neo-tag-yellow">How It Works</span>
             <h2 className="font-heading mt-4 text-5xl font-black uppercase leading-[0.95] tracking-tighter text-black sm:text-6xl lg:text-7xl">
               Four fewer <br />
-              <span className="bg-[#E07A5F] px-3 text-white text-shadow-hard">tabs open.</span>
+              <span className="bg-[#ff6b6b] px-3 text-white text-shadow-hard">tabs open.</span>
             </h2>
             <p className="mt-6 max-w-xl text-lg font-bold text-black sm:text-xl">
               Stop Frankenstein-ing a workflow out of Notion, Google Docs,
@@ -287,7 +287,7 @@ export default function Home() {
 
           <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {features.map((f, i) => {
-              const tones = ["bg-white", "bg-[#F2CC8F]", "bg-[#C3BEF7]", "bg-[#E07A5F]"];
+              const tones = ["bg-white", "bg-[#ffd93d]", "bg-[#c4b5fd]", "bg-[#ff6b6b]"];
               const tilts = ["-rotate-1", "rotate-1", "-rotate-2", "rotate-0"];
               return (
                 <article
@@ -319,7 +319,7 @@ export default function Home() {
               <span className="neo-tag neo-tag-yellow">Built For You</span>
               <h2 className="font-heading mt-4 text-5xl font-black uppercase leading-[0.95] tracking-tighter text-white sm:text-6xl lg:text-7xl">
                 Who <br />
-                <span className="text-[#E07A5F]">actually</span> uses this?
+                <span className="text-[#ff6b6b]">actually</span> uses this?
               </h2>
             </div>
             <p className="max-w-sm text-lg font-bold text-white">
@@ -346,7 +346,7 @@ export default function Home() {
                   <span className="font-heading text-3xl font-black text-black">↓</span>
                 </div>
                 <div className="border-4 border-black bg-black p-4">
-                  <p className="font-heading text-xs font-black uppercase tracking-[0.25em] text-[#F2CC8F]">
+                  <p className="font-heading text-xs font-black uppercase tracking-[0.25em] text-[#ffd93d]">
                     After
                   </p>
                   <p className="mt-2 text-base font-bold leading-snug text-white">
@@ -360,7 +360,7 @@ export default function Home() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section className="relative border-b-4 border-black bg-[#E07A5F] py-24 sm:py-32">
+      <section className="relative border-b-4 border-black bg-[#ff6b6b] py-24 sm:py-32">
         <div aria-hidden className="pointer-events-none absolute inset-0 pattern-diagonal opacity-[0.08]" />
         <div className="relative mx-auto w-full max-w-5xl px-4 text-center sm:px-6">
           <div className="inline-flex items-center gap-2">
@@ -372,7 +372,7 @@ export default function Home() {
             Stop <br />
             <span className="text-stroke">switching</span>
             <br />
-            <span className="bg-black px-3 text-[#F2CC8F]">tabs.</span>
+            <span className="bg-black px-3 text-[#ffd93d]">tabs.</span>
           </h2>
           <p className="mx-auto mt-8 max-w-2xl text-xl font-bold text-black sm:text-2xl">
             30-second setup. No credit card. Cancel in one click. <br />
@@ -390,7 +390,7 @@ export default function Home() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer className="bg-[#F2CC8F] py-10">
+      <footer className="bg-[#ffd93d] py-10">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-2 border-4 border-black bg-white px-3 py-2 neo-shadow-sm">

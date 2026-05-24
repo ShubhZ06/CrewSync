@@ -1,7 +1,7 @@
 const TONES = {
-  accent: "bg-[#E07A5F]",
-  yellow: "bg-[#F2CC8F]",
-  violet: "bg-[#C3BEF7]",
+  accent: "bg-[#ff6b6b]",
+  yellow: "bg-[#ffd93d]",
+  violet: "bg-[#c4b5fd]",
   white: "bg-white",
 } as const;
 

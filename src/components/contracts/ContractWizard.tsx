@@ -16,12 +16,12 @@ type Step = "input" | "template" | "generating" | "preview";
 type TemplateType = "Free" | "Premium" | "Modern Corporate";
 
 const freelancerTypes: Array<{ id: FreelancerType; label: string; example: string; tone: string }> = [
-  { id: "Software Development", label: "Web/App Dev", example: "Next.js web app", tone: "bg-[#E07A5F]" },
-  { id: "Design", label: "Designer", example: "Brand identity", tone: "bg-[#F2CC8F]" },
-  { id: "Digital Marketing", label: "Marketer", example: "SEO and ads", tone: "bg-[#C3BEF7]" },
-  { id: "Video Editing", label: "Video Editor", example: "Reels and YouTube", tone: "bg-[#E07A5F]" },
-  { id: "Writing", label: "Writer", example: "Blog and copy", tone: "bg-[#F2CC8F]" },
-  { id: "Consulting", label: "Consultant", example: "Growth strategy", tone: "bg-[#C3BEF7]" },
+  { id: "Software Development", label: "Web/App Dev", example: "Next.js web app", tone: "bg-[#ff6b6b]" },
+  { id: "Design", label: "Designer", example: "Brand identity", tone: "bg-[#ffd93d]" },
+  { id: "Digital Marketing", label: "Marketer", example: "SEO and ads", tone: "bg-[#c4b5fd]" },
+  { id: "Video Editing", label: "Video Editor", example: "Reels and YouTube", tone: "bg-[#ff6b6b]" },
+  { id: "Writing", label: "Writer", example: "Blog and copy", tone: "bg-[#ffd93d]" },
+  { id: "Consulting", label: "Consultant", example: "Growth strategy", tone: "bg-[#c4b5fd]" },
 ];
 
 const paymentModels: Array<ContractInput["payment_model"]> = ["Fixed", "Hourly"];
@@ -225,7 +225,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
 
   if (step === "generating") {
     return (
-      <div className="relative overflow-hidden border-4 border-black bg-[#F2CC8F] px-8 py-20 text-center neo-shadow-lg">
+      <div className="relative overflow-hidden border-4 border-black bg-[#ffd93d] px-8 py-20 text-center neo-shadow-lg">
         <div aria-hidden className="pointer-events-none absolute inset-0 pattern-halftone opacity-30" />
         <div className="relative space-y-4">
           <div className="mx-auto inline-flex h-20 w-20 animate-spin-slow items-center justify-center border-4 border-black bg-white neo-shadow-sm">
@@ -282,9 +282,9 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
               <span
                 className={`inline-flex items-center gap-2 border-[3px] border-black px-3 py-2 text-xs font-black uppercase tracking-widest ${
                   isActive
-                    ? "bg-[#E07A5F] text-black neo-shadow-sm"
+                    ? "bg-[#ff6b6b] text-black neo-shadow-sm"
                     : isDone
-                      ? "bg-black text-[#F2CC8F]"
+                      ? "bg-black text-[#ffd93d]"
                       : "bg-white text-black/60"
                 }`}
               >
@@ -301,7 +301,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
       {step === "input" ? (
         <div className="space-y-8">
           {showValidationHint ? (
-            <div className="flex items-start gap-3 border-4 border-black bg-[#E07A5F] px-5 py-4 neo-shadow-sm">
+            <div className="flex items-start gap-3 border-4 border-black bg-[#ff6b6b] px-5 py-4 neo-shadow-sm">
               <span className="text-2xl">⚠</span>
               <p className="text-base font-bold text-black">
                 Fill the required fields first, then click Continue to style selection.
@@ -311,7 +311,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
 
           {/* Freelancer type */}
           <section className="border-4 border-black bg-white neo-shadow-md">
-            <header className="border-b-4 border-black bg-[#C3BEF7] px-5 py-4">
+            <header className="border-b-4 border-black bg-[#c4b5fd] px-5 py-4">
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-8 w-8 items-center justify-center border-[3px] border-black bg-white font-heading text-xs font-black">01</span>
                 <h3 className="font-heading text-2xl font-black uppercase tracking-tight">Service Type</h3>
@@ -346,7 +346,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                     <p className="font-heading text-xl font-black uppercase tracking-tight text-black">{type.label}</p>
                     <p className="mt-1 text-sm font-bold text-black/80">e.g. {type.example}</p>
                     {selected ? (
-                      <span className="mt-3 inline-flex items-center gap-1 border-[3px] border-black bg-black px-2 py-1 text-[10px] font-black uppercase tracking-widest text-[#F2CC8F]">
+                      <span className="mt-3 inline-flex items-center gap-1 border-[3px] border-black bg-black px-2 py-1 text-[10px] font-black uppercase tracking-widest text-[#ffd93d]">
                         ✓ Selected
                       </span>
                     ) : null}
@@ -358,7 +358,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
 
           {/* Parties */}
           <section className="border-4 border-black bg-white neo-shadow-md">
-            <header className="border-b-4 border-black bg-[#F2CC8F] px-5 py-4">
+            <header className="border-b-4 border-black bg-[#ffd93d] px-5 py-4">
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-8 w-8 items-center justify-center border-[3px] border-black bg-white font-heading text-xs font-black">02</span>
                 <h3 className="font-heading text-2xl font-black uppercase tracking-tight">The Parties</h3>
@@ -376,7 +376,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                 <label key={field.name} className="block space-y-2">
                   <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black">
                     {field.label}
-                    {errors[field.name] ? <span className="ml-2 text-[#E07A5F]">*</span> : null}
+                    {errors[field.name] ? <span className="ml-2 text-[#ff6b6b]">*</span> : null}
                   </span>
                   <input
                     name={field.name}
@@ -389,7 +389,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                 </label>
               ))}
 
-              <div className="border-4 border-black bg-[#FAF9F5] p-4 md:col-span-2">
+              <div className="border-4 border-black bg-[#fffdf5] p-4 md:col-span-2">
                 <p className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black/70">
                   Freelancer profile (auto)
                 </p>
@@ -443,7 +443,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
 
           {/* Scope & payment */}
           <section className="border-4 border-black bg-white neo-shadow-md">
-            <header className="border-b-4 border-black bg-[#E07A5F] px-5 py-4">
+            <header className="border-b-4 border-black bg-[#ff6b6b] px-5 py-4">
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-8 w-8 items-center justify-center border-[3px] border-black bg-white font-heading text-xs font-black">03</span>
                 <h3 className="font-heading text-2xl font-black uppercase tracking-tight">Scope & Payment</h3>
@@ -453,7 +453,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
               <label className="block space-y-2">
                 <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black">
                   Scope of work
-                  {errors.scope_of_work ? <span className="ml-2 text-[#E07A5F]">*</span> : null}
+                  {errors.scope_of_work ? <span className="ml-2 text-[#ff6b6b]">*</span> : null}
                 </span>
                 <textarea
                   name="scope_of_work"
@@ -468,7 +468,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                 <label className="block space-y-2">
                   <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black">
                     Jurisdiction
-                    {errors.jurisdiction ? <span className="ml-2 text-[#E07A5F]">*</span> : null}
+                    {errors.jurisdiction ? <span className="ml-2 text-[#ff6b6b]">*</span> : null}
                   </span>
                   <input
                     name="jurisdiction"
@@ -481,7 +481,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                 <label className="block space-y-2">
                   <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black">
                     Timeline
-                    {errors.timeline ? <span className="ml-2 text-[#E07A5F]">*</span> : null}
+                    {errors.timeline ? <span className="ml-2 text-[#ff6b6b]">*</span> : null}
                   </span>
                   <input
                     name="timeline"
@@ -515,7 +515,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                 <label className="block space-y-2">
                   <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black">
                     Total budget
-                    {errors.budget ? <span className="ml-2 text-[#E07A5F]">*</span> : null}
+                    {errors.budget ? <span className="ml-2 text-[#ff6b6b]">*</span> : null}
                   </span>
                   <input
                     name="budget"
@@ -529,7 +529,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                 <label className="block space-y-2">
                   <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black">
                     Hourly rate
-                    {errors.hourly_rate ? <span className="ml-2 text-[#E07A5F]">*</span> : null}
+                    {errors.hourly_rate ? <span className="ml-2 text-[#ff6b6b]">*</span> : null}
                   </span>
                   <input
                     name="hourly_rate"
@@ -568,9 +568,9 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
 
           <div className="grid gap-6 md:grid-cols-3">
             {([
-              { id: "Free", title: "Free", note: "Simple. Honest. Direct.", tone: "bg-[#F2CC8F]" },
-              { id: "Premium", title: "Premium", note: "Polished client-facing layout.", tone: "bg-[#E07A5F]" },
-              { id: "Modern Corporate", title: "Corporate", note: "Formal enterprise structure.", tone: "bg-[#C3BEF7]" },
+              { id: "Free", title: "Free", note: "Simple. Honest. Direct.", tone: "bg-[#ffd93d]" },
+              { id: "Premium", title: "Premium", note: "Polished client-facing layout.", tone: "bg-[#ff6b6b]" },
+              { id: "Modern Corporate", title: "Corporate", note: "Formal enterprise structure.", tone: "bg-[#c4b5fd]" },
             ] as const).map((option, idx) => {
               const selected = selectedTemplate === option.id;
               const tilt = idx === 0 ? "-rotate-2" : idx === 1 ? "rotate-0" : "rotate-2";
@@ -596,7 +596,7 @@ export function ContractWizard({ onContractSent }: ContractWizardProps = {}) {
                     {option.note}
                   </p>
                   {selected ? (
-                    <span className="absolute -right-3 -top-3 inline-flex h-10 w-10 rotate-12 items-center justify-center border-4 border-black bg-black font-heading text-lg font-black text-[#F2CC8F]">
+                    <span className="absolute -right-3 -top-3 inline-flex h-10 w-10 rotate-12 items-center justify-center border-4 border-black bg-black font-heading text-lg font-black text-[#ffd93d]">
                       ✓
                     </span>
                   ) : null}

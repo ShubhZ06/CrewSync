@@ -113,7 +113,7 @@ export default function PaymentGeneratePage() {
                 inputMode="decimal"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full border-[3px] border-black bg-[#FAF9F5] px-3 py-2 font-bold text-black outline-none focus:ring-2 focus:ring-[#E07A5F]"
+                className="w-full border-[3px] border-black bg-[#fffdf5] px-3 py-2 font-bold text-black outline-none focus:ring-2 focus:ring-[#ff6b6b]"
                 placeholder="500"
               />
             </label>
@@ -123,7 +123,7 @@ export default function PaymentGeneratePage() {
                 type="text"
                 value={projectTitle}
                 onChange={(e) => setProjectTitle(e.target.value)}
-                className="w-full border-[3px] border-black bg-[#FAF9F5] px-3 py-2 font-bold text-black outline-none focus:ring-2 focus:ring-[#E07A5F]"
+                className="w-full border-[3px] border-black bg-[#fffdf5] px-3 py-2 font-bold text-black outline-none focus:ring-2 focus:ring-[#ff6b6b]"
                 placeholder="Website redesign — Acme Co."
               />
             </label>
@@ -133,7 +133,7 @@ export default function PaymentGeneratePage() {
                 type="text"
                 value={clientLabel}
                 onChange={(e) => setClientLabel(e.target.value)}
-                className="w-full border-[3px] border-black bg-[#FAF9F5] px-3 py-2 font-bold text-black outline-none focus:ring-2 focus:ring-[#E07A5F]"
+                className="w-full border-[3px] border-black bg-[#fffdf5] px-3 py-2 font-bold text-black outline-none focus:ring-2 focus:ring-[#ff6b6b]"
                 placeholder="Invoice #1042 — Net 15"
               />
             </label>
@@ -153,7 +153,7 @@ export default function PaymentGeneratePage() {
           ) : null}
         </section>
 
-        <section className="border-4 border-black bg-[#F2CC8F] p-6 neo-shadow-sm">
+        <section className="border-4 border-black bg-[#ffd93d] p-6 neo-shadow-sm">
           <h2 className="font-heading text-xl font-black uppercase tracking-tight text-black">2. Share the link</h2>
           <p className="mt-2 text-sm font-bold text-black">
             Stripe hosts the checkout. After you generate, copy the link or open WhatsApp with the message prefilled.
@@ -189,7 +189,7 @@ export default function PaymentGeneratePage() {
         </section>
       </div>
 
-      <section className="mt-8 border-4 border-black bg-[#C3BEF7] p-6 neo-shadow-sm">
+      <section className="mt-8 border-4 border-black bg-[#c4b5fd] p-6 neo-shadow-sm">
         <h2 className="font-heading text-lg font-black uppercase text-black">After the client pays</h2>
         <p className="mt-2 max-w-3xl text-sm font-bold text-black">
           They are redirected to a confirmation page on this site. Configure{" "}

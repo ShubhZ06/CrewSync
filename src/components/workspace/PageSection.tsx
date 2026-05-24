@@ -14,9 +14,9 @@ export function PageSection({
   eyebrow?: string;
 }) {
   const toneBg = {
-    cream: "bg-[#FAF9F5]",
-    yellow: "bg-[#F2CC8F]",
-    violet: "bg-[#C3BEF7]",
+    cream: "bg-[#fffdf5]",
+    yellow: "bg-[#ffd93d]",
+    violet: "bg-[#c4b5fd]",
     white: "bg-white",
   }[tone];
 
@@ -24,8 +24,8 @@ export function PageSection({
     <section className={`relative border-4 border-black ${toneBg} neo-shadow-md`}>
       <div className="border-b-4 border-black bg-black px-6 py-5 sm:px-8">
         <div className="flex items-center gap-3">
-          <span className="inline-block h-3 w-3 bg-[#E07A5F]" aria-hidden />
-          <span className="font-heading text-xs font-black uppercase tracking-[0.3em] text-[#F2CC8F]">
+          <span className="inline-block h-3 w-3 bg-[#ff6b6b]" aria-hidden />
+          <span className="font-heading text-xs font-black uppercase tracking-[0.3em] text-[#ffd93d]">
             {eyebrow}
           </span>
         </div>

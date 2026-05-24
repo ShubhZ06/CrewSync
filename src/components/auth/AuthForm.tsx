@@ -179,15 +179,15 @@ export function AuthForm({ mode }: Props) {
   }
 
   return (
-    <section className="relative grid gap-10 border-4 border-black bg-[#FAF9F5] p-6 neo-shadow-lg sm:p-10 lg:grid-cols-[1.1fr_1fr] lg:p-12">
+    <section className="relative grid gap-10 border-4 border-black bg-[#fffdf5] p-6 neo-shadow-lg sm:p-10 lg:grid-cols-[1.1fr_1fr] lg:p-12">
       {/* Decorative floaters */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-4 -top-4 hidden h-16 w-16 border-4 border-black bg-[#F2CC8F] neo-shadow-sm lg:block"
+        className="pointer-events-none absolute -right-4 -top-4 hidden h-16 w-16 border-4 border-black bg-[#ffd93d] neo-shadow-sm lg:block"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -bottom-4 left-10 hidden h-10 w-10 rotate-45 border-4 border-black bg-[#E07A5F] lg:block"
+        className="pointer-events-none absolute -bottom-4 left-10 hidden h-10 w-10 rotate-45 border-4 border-black bg-[#ff6b6b] lg:block"
       />
 
       <div className="flex flex-col gap-8">
@@ -204,7 +204,7 @@ export function AuthForm({ mode }: Props) {
               <>
                 Clock
                 <br />
-                <span className="bg-[#E07A5F] px-2 text-white text-shadow-hard">
+                <span className="bg-[#ff6b6b] px-2 text-white text-shadow-hard">
                   In.
                 </span>
               </>
@@ -212,7 +212,7 @@ export function AuthForm({ mode }: Props) {
               <>
                 Back to
                 <br />
-                <span className="bg-[#F2CC8F] px-2 text-black">
+                <span className="bg-[#ffd93d] px-2 text-black">
                   Work.
                 </span>
               </>
@@ -225,7 +225,7 @@ export function AuthForm({ mode }: Props) {
           </p>
         </div>
 
-        <div className="border-4 border-black bg-[#C3BEF7] p-5 neo-shadow-sm">
+        <div className="border-4 border-black bg-[#c4b5fd] p-5 neo-shadow-sm">
           <p className="font-heading text-xs font-black uppercase tracking-[0.25em] text-black">
             Quick note
           </p>
@@ -242,9 +242,9 @@ export function AuthForm({ mode }: Props) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5 border-4 border-black bg-black p-6 neo-shadow-md sm:p-8">
-        <div className="flex items-center gap-3 border-b-[3px] border-[#F2CC8F] pb-4">
-          <span className="inline-block h-3 w-3 bg-[#E07A5F]" aria-hidden />
-          <p className="font-heading text-xs font-black uppercase tracking-[0.3em] text-[#F2CC8F]">
+        <div className="flex items-center gap-3 border-b-[3px] border-[#ffd93d] pb-4">
+          <span className="inline-block h-3 w-3 bg-[#ff6b6b]" aria-hidden />
+          <p className="font-heading text-xs font-black uppercase tracking-[0.3em] text-[#ffd93d]">
             {isSignUp ? `Create Account · Step ${signUpStep} / 2` : "Sign In"}
           </p>
         </div>
@@ -254,7 +254,7 @@ export function AuthForm({ mode }: Props) {
             {signUpStep === 1 ? (
               <>
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Full name
                   </span>
                   <input
@@ -269,7 +269,7 @@ export function AuthForm({ mode }: Props) {
                 </label>
 
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Email
                   </span>
                   <input
@@ -285,7 +285,7 @@ export function AuthForm({ mode }: Props) {
                 </label>
 
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Location
                   </span>
                   <input
@@ -300,7 +300,7 @@ export function AuthForm({ mode }: Props) {
                 </label>
 
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Phone Number
                   </span>
                   <input
@@ -316,7 +316,7 @@ export function AuthForm({ mode }: Props) {
                 </label>
 
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Password
                   </span>
                   <div className="relative">
@@ -333,7 +333,7 @@ export function AuthForm({ mode }: Props) {
                     <button
                       type="button"
                       onClick={() => setShowPassword((prev) => !prev)}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 border-2 border-black bg-[#F2CC8F] px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-black"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 border-2 border-black bg-[#ffd93d] px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-black"
                     >
                       {showPassword ? "Hide" : "Show"}
                     </button>
@@ -343,7 +343,7 @@ export function AuthForm({ mode }: Props) {
             ) : (
               <>
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Business Name
                   </span>
                   <input
@@ -358,7 +358,7 @@ export function AuthForm({ mode }: Props) {
                 </label>
 
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Business Location
                   </span>
                   <input
@@ -373,7 +373,7 @@ export function AuthForm({ mode }: Props) {
                 </label>
 
                 <label className="block space-y-2">
-                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                     Registration Number
                   </span>
                   <input
@@ -391,7 +391,7 @@ export function AuthForm({ mode }: Props) {
         ) : (
           <>
             <label className="block space-y-2">
-              <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+              <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                 Email
               </span>
               <input
@@ -407,7 +407,7 @@ export function AuthForm({ mode }: Props) {
             </label>
 
             <label className="block space-y-2">
-              <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#F2CC8F]">
+              <span className="font-heading text-xs font-black uppercase tracking-[0.2em] text-[#ffd93d]">
                 Password
               </span>
               <input
@@ -425,7 +425,7 @@ export function AuthForm({ mode }: Props) {
         )}
 
         {error ? (
-          <p className="border-[3px] border-black bg-[#E07A5F] px-4 py-3 text-sm font-bold text-black">
+          <p className="border-[3px] border-black bg-[#ff6b6b] px-4 py-3 text-sm font-bold text-black">
             ⚠ {error}
           </p>
         ) : null}
@@ -475,7 +475,7 @@ export function AuthForm({ mode }: Props) {
           {isSignUp ? "Already have an account?" : "Need an account?"}{" "}
           <Link
             href={isSignUp ? "/sign-in" : "/sign-up"}
-            className="border-b-[3px] border-[#F2CC8F] font-heading uppercase tracking-wider text-[#F2CC8F] hover:bg-[#F2CC8F] hover:text-black"
+            className="border-b-[3px] border-[#ffd93d] font-heading uppercase tracking-wider text-[#ffd93d] hover:bg-[#ffd93d] hover:text-black"
           >
             {isSignUp ? "Sign in" : "Sign up"}
           </Link>

@@ -22,7 +22,7 @@ export function WorkspaceShell({
         {/* Violet shape — bottom-left */}
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-10 -left-10 hidden h-24 w-24 border-4 border-black bg-[#C3BEF7] md:block"
+          className="pointer-events-none absolute -bottom-10 -left-10 hidden h-24 w-24 border-4 border-black bg-[#c4b5fd] md:block"
         />
 
         <div className="relative z-10 flex flex-col gap-4 px-2 pl-4 sm:px-4 sm:pl-6 md:px-6 md:pl-8">

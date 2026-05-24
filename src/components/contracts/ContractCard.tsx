@@ -15,18 +15,18 @@ const statusConfig: Record<
   },
   "Ready to Send": {
     label: "Ready to Send",
-    bg: "bg-[#F2CC8F]",
+    bg: "bg-[#ffd93d]",
     text: "text-black",
   },
   Sent: {
     label: "Sent",
-    bg: "bg-[#C3BEF7]",
+    bg: "bg-[#c4b5fd]",
     text: "text-black",
   },
   Signed: {
     label: "Signed",
     bg: "bg-black",
-    text: "text-[#F2CC8F]",
+    text: "text-[#ffd93d]",
   },
 };
 
@@ -99,7 +99,7 @@ export function ContractCard({
           )}
 
           {status === "Signed" && (
-            <span className="inline-flex items-center gap-2 border-[3px] border-black bg-black px-3 py-2 font-heading text-xs font-black uppercase tracking-widest text-[#F2CC8F]">
+            <span className="inline-flex items-center gap-2 border-[3px] border-black bg-black px-3 py-2 font-heading text-xs font-black uppercase tracking-widest text-[#ffd93d]">
               ✓ Fully Executed
             </span>
           )}

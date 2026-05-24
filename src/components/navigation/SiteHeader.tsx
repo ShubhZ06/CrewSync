@@ -17,13 +17,13 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b-4 border-black bg-[#FAF9F5]">
+    <header className="sticky top-0 z-40 border-b-4 border-black bg-[#fffdf5]">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-3 sm:px-6 lg:px-8">
         {/* Top bar — logo + user info */}
         <div className="flex items-center justify-between gap-3">
           <Link
             href="/dashboard"
-            className="group inline-flex items-center gap-2 border-4 border-black bg-[#E07A5F] px-3 py-2 neo-shadow-sm transition-transform duration-100 hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0_0_#000] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+            className="group inline-flex items-center gap-2 border-4 border-black bg-[#ff6b6b] px-3 py-2 neo-shadow-sm transition-transform duration-100 hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0_0_#000] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
           >
             <span className="font-heading text-lg uppercase tracking-tight text-black sm:text-xl">
               Crew Sync
@@ -35,7 +35,7 @@ export function SiteHeader() {
             {user ? (
               <>
                 <div className="hidden items-center gap-2 sm:flex">
-                  <span className="inline-flex h-8 w-8 items-center justify-center border-[3px] border-black bg-[#F2CC8F] font-heading text-sm font-black uppercase text-black">
+                  <span className="inline-flex h-8 w-8 items-center justify-center border-[3px] border-black bg-[#ffd93d] font-heading text-sm font-black uppercase text-black">
                     {user.name.charAt(0) || "?"}
                   </span>
                   <span className="text-xs font-bold text-black">{user.name}</span>

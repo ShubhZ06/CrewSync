@@ -188,7 +188,7 @@ export function SendSignatureModal({
     >
       <div className="relative flex w-full max-w-xl flex-col border-4 border-black bg-white neo-shadow-lg">
 
-        <div className="flex items-start justify-between border-b-4 border-black bg-[#F2CC8F] px-6 py-5">
+        <div className="flex items-start justify-between border-b-4 border-black bg-[#ffd93d] px-6 py-5">
           <div className="min-w-0 pr-4">
             <span className="font-heading text-[10px] font-black uppercase tracking-[0.3em] text-black">
               E-Signature
@@ -209,7 +209,7 @@ export function SendSignatureModal({
             onClick={onClose}
             disabled={isSending}
             aria-label="Close modal"
-            className="shrink-0 border-[3px] border-black bg-white p-2 font-heading text-black transition-all hover:bg-[#E07A5F] disabled:pointer-events-none disabled:opacity-40"
+            className="shrink-0 border-[3px] border-black bg-white p-2 font-heading text-black transition-all hover:bg-[#ff6b6b] disabled:pointer-events-none disabled:opacity-40"
           >
             <svg
               className="h-4 w-4"
@@ -229,7 +229,7 @@ export function SendSignatureModal({
 
         {sendSuccess ? (
           <div className="flex flex-col gap-5 p-6">
-            <div className="border-4 border-black bg-[#FAF9F5] p-5">
+            <div className="border-4 border-black bg-[#fffdf5] p-5">
               <p className="font-heading mb-2 text-[10px] font-black uppercase tracking-[0.3em] text-black">Sent</p>
               <p className="font-heading text-2xl font-black uppercase tracking-tight text-black">
                 Signing Link Ready
@@ -267,7 +267,7 @@ export function SendSignatureModal({
           <form id="send-signature-form" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-5 p-6">
 
-              <div className="border-4 border-black bg-[#FAF9F5] p-5">
+              <div className="border-4 border-black bg-[#fffdf5] p-5">
                 <p className="font-heading mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-black">
                   Contract Details
                 </p>
@@ -278,7 +278,7 @@ export function SendSignatureModal({
                       htmlFor="ssm-recipient"
                       className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black"
                     >
-                      Recipient <span className="text-[#E07A5F]">*</span>
+                      Recipient <span className="text-[#ff6b6b]">*</span>
                     </label>
                     <input
                       id="ssm-recipient"
@@ -297,7 +297,7 @@ export function SendSignatureModal({
                       htmlFor="ssm-email"
                       className="font-heading text-xs font-black uppercase tracking-[0.2em] text-black"
                     >
-                      Email <span className="text-[#E07A5F]">*</span>
+                      Email <span className="text-[#ff6b6b]">*</span>
                     </label>
                     <input
                       id="ssm-email"
@@ -320,7 +320,7 @@ export function SendSignatureModal({
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 border-4 border-black bg-[#C3BEF7] px-4 py-3 neo-shadow-sm">
+              <div className="flex items-start gap-3 border-4 border-black bg-[#c4b5fd] px-4 py-3 neo-shadow-sm">
                 <span className="font-heading text-xl font-black" aria-hidden="true">ℹ</span>
                 <p className="text-sm font-bold leading-snug text-black">
                   The contract PDF will be prepared and shared through a secure signing link.{" "}

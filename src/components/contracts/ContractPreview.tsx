@@ -80,7 +80,7 @@ export function ContractPreview({ result, templateType, onSend }: Props) {
       `}</style>
 
       {/* Plain English summary — hidden in print */}
-      <div className="relative overflow-hidden border-4 border-black bg-[#F2CC8F] p-6 neo-shadow-md no-print sm:p-8">
+      <div className="relative overflow-hidden border-4 border-black bg-[#ffd93d] p-6 neo-shadow-md no-print sm:p-8">
         <div aria-hidden className="pointer-events-none absolute inset-0 pattern-halftone opacity-20" />
         <div className="relative">
           <div className="mb-5 flex items-center gap-3">

@@ -9,9 +9,9 @@ export function ListCard({
 }) {
   const toneBg = {
     white: "bg-white",
-    yellow: "bg-[#F2CC8F]",
-    violet: "bg-[#C3BEF7]",
-    accent: "bg-[#E07A5F]",
+    yellow: "bg-[#ffd93d]",
+    violet: "bg-[#c4b5fd]",
+    accent: "bg-[#ff6b6b]",
   }[tone];
 
   return (
@@ -26,9 +26,9 @@ export function ListCard({
         {items.map((item, idx) => (
           <li
             key={item}
-            className="flex items-start gap-4 px-5 py-4 transition-colors duration-100 hover:bg-[#FAF9F5]"
+            className="flex items-start gap-4 px-5 py-4 transition-colors duration-100 hover:bg-[#fffdf5]"
           >
-            <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center border-[3px] border-black bg-[#F2CC8F] font-heading text-sm font-black">
+            <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center border-[3px] border-black bg-[#ffd93d] font-heading text-sm font-black">
               {String(idx + 1).padStart(2, "0")}
             </span>
             <p className="text-base font-bold leading-snug text-black">{item}</p>
