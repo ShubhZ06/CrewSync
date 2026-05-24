@@ -13,28 +13,29 @@ const headingFont = Archivo_Black({
 const bodyFont = Space_Grotesk({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["500", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Crew Sync — Run Client Work Without The Chaos",
-  description: "The punk operating system for independent professionals. Leads, contracts, signatures, updates, expenses — all in one loud place.",
+  title: "CrewSync — Run Client Work Without The Chaos",
+  description:
+    "The operating system for independent professionals. Leads, contracts, signatures, updates — all in one place.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      data-scroll-behavior="smooth"
       className={`${headingFont.variable} ${bodyFont.variable} h-full antialiased`}
     >
-      <body suppressHydrationWarning className="min-h-full flex flex-col bg-background text-foreground">
+      <body
+        suppressHydrationWarning
+        className="flex min-h-full flex-col bg-background text-foreground"
+      >
         <ConditionalHeader />
         {children}
       </body>

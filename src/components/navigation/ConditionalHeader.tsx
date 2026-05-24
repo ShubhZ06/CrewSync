@@ -3,16 +3,13 @@
 import { usePathname } from "next/navigation";
 import { SiteHeader } from "./SiteHeader";
 
-/* Routes that are accessible without login — no app header */
-const PUBLIC_ROUTES = ["/", "/sign-in", "/sign-up"];
+const PUBLIC_PREFIXES = ["/", "/sign-in", "/sign-up", "/contract/"];
 
 export function ConditionalHeader() {
   const pathname = usePathname();
-
-  /* Hide the app header on public routes */
-  if (PUBLIC_ROUTES.some((r) => pathname === r)) {
-    return null;
-  }
-
+  if (
+    pathname === "/" ||
+    PUBLIC_PREFIXES.slice(1).some((p) => pathname.startsWith(p))
+  ) return null;
   return <SiteHeader />;
 }

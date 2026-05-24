@@ -17,48 +17,48 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b-4 border-black bg-[#fffdf5]">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        {/* Top bar — logo + user info */}
-        <div className="flex items-center justify-between gap-3">
-          <Link
-            href="/dashboard"
-            className="group inline-flex items-center gap-2 border-4 border-black bg-[#ff6b6b] px-3 py-2 neo-shadow-sm transition-transform duration-100 hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-[6px_6px_0_0_#000] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
-          >
-            <span className="font-heading text-lg uppercase tracking-tight text-black sm:text-xl">
-              Crew Sync
-            </span>
-            <span aria-hidden className="inline-block h-2 w-2 bg-black" />
-          </Link>
+    <aside className="fixed left-0 top-0 z-40 flex h-full w-56 flex-col border-r-[3px] border-[#0a0a0a] bg-[#f5f0e8]">
+      {/* Logo */}
+      <div className="border-b-[3px] border-[#0a0a0a] p-4">
+        <Link
+          href="/dashboard"
+          className="group flex items-center gap-2 border-[3px] border-[#0a0a0a] bg-[#e8341c] px-3 py-2.5 shadow-[4px_4px_0_0_#0a0a0a] transition-transform duration-100 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_0_#0a0a0a] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none"
+        >
+          <span className="font-heading text-base uppercase tracking-tight text-white leading-none">CrewSync</span>
+          <span aria-hidden className="ml-auto inline-block h-2 w-2 bg-white" />
+        </Link>
+      </div>
 
-          <div className="flex items-center gap-3">
-            {user ? (
-              <>
-                <div className="hidden items-center gap-2 sm:flex">
-                  <span className="inline-flex h-8 w-8 items-center justify-center border-[3px] border-black bg-[#ffd93d] font-heading text-sm font-black uppercase text-black">
-                    {user.name.charAt(0) || "?"}
-                  </span>
-                  <span className="text-xs font-bold text-black">{user.name}</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={handleSignOut}
-                  className="neo-btn neo-btn-dark text-xs"
-                >
-                  Sign Out
-                </button>
-              </>
-            ) : (
-              <Link href="/sign-in" className="neo-btn neo-btn-dark text-xs">
-                Sign In
-              </Link>
-            )}
-          </div>
-        </div>
-
-        {/* Navigation tabs */}
+      {/* Navigation */}
+      <div className="flex-1 overflow-y-auto">
         <AppNav />
       </div>
-    </header>
+
+      {/* User + sign out */}
+      <div className="border-t-[3px] border-[#0a0a0a] p-3">
+        {user ? (
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2 border-[3px] border-[#0a0a0a] bg-white px-3 py-2 shadow-[3px_3px_0_0_#0a0a0a]">
+              <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center border-[2px] border-[#0a0a0a] bg-[#f5c800] font-heading text-xs font-black uppercase">
+                {user.name.charAt(0) || "?"}
+              </span>
+              <span className="truncate text-xs font-bold text-[#0a0a0a]">{user.name}</span>
+            </div>
+            <button
+              type="button"
+              onClick={handleSignOut}
+              className="btn btn-dark btn-sm w-full"
+            >
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <Link href="/sign-in" className="btn btn-dark btn-sm w-full">Sign In</Link>
+        )}
+        <p className="mt-3 text-center font-heading text-[9px] uppercase tracking-widest text-[#0a0a0a]/40">
+          v0.1 Beta
+        </p>
+      </div>
+    </aside>
   );
 }

@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 
 export function WorkspaceShell({
   children,
-  eyebrow = "Crew Sync / Workspace",
-  title = "Crew Sync Workspace",
-  description = "Focused pages for daily operations.",
+  eyebrow = "Crew Sync",
+  title = "Workspace",
+  description,
 }: {
   children: ReactNode;
   eyebrow?: string;
@@ -12,35 +12,28 @@ export function WorkspaceShell({
   description?: string;
 }) {
   return (
-    <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
-      <section className="relative neo-card overflow-hidden p-6 sm:p-10">
-        {/* Halftone accent — top-right */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 pattern-halftone opacity-40"
-        />
-        {/* Violet shape — bottom-left */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-10 -left-10 hidden h-24 w-24 border-4 border-black bg-[#c4b5fd] md:block"
-        />
-
-        <div className="relative z-10 flex flex-col gap-4 px-2 pl-4 sm:px-4 sm:pl-6 md:px-6 md:pl-8">
-          <div className="inline-flex w-fit items-center gap-2">
-            <span className="neo-tag neo-tag-accent">{eyebrow}</span>
-            <span aria-hidden className="h-[3px] w-10 bg-black" />
-          </div>
-          <h1 className="font-heading max-w-4xl text-3xl font-black uppercase leading-[0.95] tracking-tighter text-black sm:text-5xl md:text-6xl">
+    <main className="ml-56 flex min-h-screen flex-col">
+      {/* Page header */}
+      <div className="border-b-[3px] border-[#0a0a0a] bg-white px-8 py-8">
+        <div className="relative max-w-5xl">
+          {/* Decorative corner accent */}
+          <div aria-hidden className="pointer-events-none absolute -right-4 -top-4 hidden h-20 w-20 pattern-dots opacity-40 md:block" />
+          <span className="tag tag-red">{eyebrow}</span>
+          <h1 className="font-heading mt-3 text-4xl font-black uppercase leading-[0.92] tracking-tighter sm:text-5xl md:text-6xl">
             {title}
           </h1>
-          {description ? (
-            <p className="max-w-3xl text-base font-bold leading-relaxed text-black sm:text-lg md:text-xl">
+          {description && (
+            <p className="mt-3 max-w-2xl text-base font-semibold leading-relaxed text-[#0a0a0a]/70 sm:text-lg">
               {description}
             </p>
-          ) : null}
+          )}
         </div>
-      </section>
-      {children}
+      </div>
+
+      {/* Page body */}
+      <div className="flex flex-1 flex-col gap-6 px-8 py-8">
+        {children}
+      </div>
     </main>
   );
 }
