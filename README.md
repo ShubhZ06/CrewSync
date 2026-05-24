@@ -1,57 +1,242 @@
-# The Unified Client Lifecycle & Workspace Engine for Independent Professionals
+# Crew Sync
 
-Crew Sync is an all-in-one platform engineered to streamline the entire client lifecycle for freelancers, independent contractors, and agencies. By unifying lead management, real-time client communication, smart escrow contracts, and automated invoicing, Crew Sync eliminates fragmented workflows and replaces the need for a chaotic tech stack of disjointed point solutions.
+A full-stack freelancer workspace built with Next.js App Router.
 
-Unlike rigid traditional marketplaces that restrict client-freelancer relationships, Crew Sync provides a dedicated, platform-independent workspace that bridges the gap between client acquisition and back-office CRM administration.
+Crew Sync combines the most common freelancer workflows in one product:
 
-## 🚀 Key Features
-- **Unified Client Lifecycle Management:** Track a project from initial discovery and lead sourcing through proposal delivery, active milestones, and ultimate handoff.
-- **Secure Escrow & Payments:** Integrated transactional escrow fees for milestone-based, secure payment processing to eliminate payment disputes.
-- **Interactive Client Portals:** Dedicated, transparent workspaces for clients to view project timelines, sign contracts, and track deliverables.
-- **Template Marketplace:** Access and monetize premium, community-curated contract frameworks and project board templates.
-- **B2B Team Routing:** Advanced multi-member collaboration features tailored for growing agencies and independent syndicates.
+- find client opportunities
+- generate contracts
+- send progress updates and warning reminders
+- route contracts for e-signature
+- collect payments and run escrow actions
+- maintain reusable profile/business details
 
-## 🛠️ Architecture & Tech Stack
-Crew Sync is designed around a modern, scalable, and visually striking architectural layout:
+## What This Project Includes
 
-- **Frontend UI:** Crafted with a clean, highly scannable design language utilizing glassmorphism aesthetics, sharp typography, and structured bento grid layouts.
-- **Backend & Data Layer:** Formed around real-time event streaming and high-concurrency architecture to handle fast client-freelancer communication and secure state tracking.
+### Frontend modules
 
-## 💼 Business & Monetization Model
-Crew Sync operates on a multi-tiered hybrid revenue strategy optimized for scalability:
+- `/dashboard`: module launcher workspace
+- `/acquisition`: client opportunity search with intent filters
+- `/contracts`: 3-step contract intake -> style -> preview
+- `/communications`: send project updates and warning reminders
+- `/payment/generate`: create and share Stripe checkout links
+- `/signing`: view and track contract signing records
+- `/settings`: editable profile and business details
+- `/expenses`: placeholder page for expense insights
+- `/sign-in`, `/sign-up`: auth entry points
+- `/contract/[id]`: contract viewing/signing route
 
-| Revenue Stream | Description |
-| --- | --- |
-| Transactional Escrow Fees | A minor percentage-based fee applied to secure milestone payments. |
-| SaaS Subscriptions | Tiered premium packages unlocking advanced analytics, custom branding, and automated workflows. |
-| Premium Template Marketplace | Commission split on community-built workflow architectures and legal contract templates. |
-| Enterprise B2B Solutions | Customized organizational packages with dedicated seating and specialized agency features. |
+### Backend domains (Next.js route handlers)
 
-## 🚦 Getting Started
+- acquisition: aggregate leads from multiple sources
+- clients: lightweight client CRUD for communications
+- contracts: create signature requests and list contracts
+- communications: WhatsApp update/warning dispatch + voice generation
+- payments: Stripe checkout creation/status/share
+- escrow: hold/release/cancel funds flow
+- webhooks: Stripe and Documenso webhook handling
+
+## Current Architecture (As Implemented)
+
+- framework: Next.js `16.2.4` (App Router)
+- ui: React `19`, Tailwind CSS `4`
+- database: MongoDB (native driver)
+- contracts/signing: Documenso API + webhook callback
+- messaging: Twilio WhatsApp
+- voice notes: ElevenLabs TTS
+- payments/escrow: Stripe
+
+The app is currently a modular monolith in one Next.js codebase.
+
+## Key User Flows
+
+### 1) Sign up and profile reuse
+
+- sign-up captures personal + business details
+- profile data is reused in contracts/settings and related flows
+- session state is stored locally for this MVP
+
+### 2) Contract generation and sending
+
+1. user fills contract intake in `/contracts`
+2. contract text + summary are generated
+3. rendered contract is converted to PDF using `html2canvas-pro` + `jsPDF`
+4. PDF is posted to `/api/contracts/create-signature`
+5. backend creates/distributes document through Documenso
+6. signing link is returned and shown in the UI
+7. webhook `/api/webhooks/documenso` marks matching record as `Signed`
+
+### 3) Client communication
+
+1. add/select client in `/communications`
+2. send update with summary + checklist (`/api/communications/send-update`)
+3. send warning reminder (`/api/communications/send-warning`)
+4. optional voice note generation (`/api/communications/generate-voice`)
+
+### 4) Payments and escrow
+
+- checkout flow: `/api/payments/create-checkout` creates Stripe Checkout Session
+- verification: `/api/payments/session-status` checks payment status
+- sharing: `/api/payments/share-whatsapp` sends checkout URL over WhatsApp
+- escrow hold/release/cancel via:
+	- `/api/escrow/hold`
+	- `/api/escrow/release`
+	- `/api/escrow/cancel`
+
+## API Reference
+
+### Acquisition
+
+- `GET /api/acquisition/leads`
+	- sources always available: Arbeitnow, Remotive, Remote OK
+	- optional sources when configured: Adzuna, Jooble, USAJOBS
+	- returns normalized merged leads, warnings, source list, and persistence status
+
+### Clients
+
+- `GET /api/clients`
+- `POST /api/clients`
+- `DELETE /api/clients/[id]`
+
+### Contracts
+
+- `POST /api/contracts/create`
+- `POST /api/contracts/create-signature` (proxy to create)
+- `GET /api/contracts/list`
+
+### Communications
+
+- `POST /api/communications/send-update`
+- `POST /api/communications/send-warning`
+- `POST /api/communications/generate-voice`
+- `POST /api/debug-whatsapp`
+
+### Payments and escrow
+
+- `POST /api/payments/create-checkout`
+- `GET /api/payments/session-status`
+- `POST /api/payments/share-whatsapp`
+- `POST /api/escrow/hold`
+- `POST /api/escrow/release`
+- `POST /api/escrow/cancel`
+
+### Webhooks
+
+- `POST /api/webhooks/stripe`
+- `POST /api/webhooks/documenso`
+
+## Environment Variables
+
+Create `.env.local` in the project root.
+
+### Required for core features
+
+- `MONGODB_URI`
+- `STRIPE_SECRET_KEY`
+- `DOCUMENSO_API_KEY`
+
+### Strongly recommended
+
+- `MONGODB_DB_NAME` (default: `crew_sync`)
+- `NEXT_PUBLIC_APP_URL` (default fallback: `http://localhost:3000`)
+- `STRIPE_WEBHOOK_SECRET`
+- `DOCUMENSO_BASE_URL` (default: `https://app.documenso.com`)
+- `DOCUMENSO_WEBHOOK_SECRET`
+
+### Optional lead-source providers
+
+- `ADZUNA_APP_ID`
+- `ADZUNA_APP_KEY`
+- `ADZUNA_COUNTRY` (default: `gb`)
+- `JOOBLE_API_KEY`
+- `USAJOBS_API_KEY`
+- `USAJOBS_EMAIL`
+- `USAJOBS_USER_AGENT`
+
+### Optional communications integrations
+
+- `TWILIO_ACCOUNT_SID`
+- `TWILIO_AUTH_TOKEN`
+- `TWILIO_WHATSAPP_FROM`
+- `TWILIO_WHATSAPP_TO`
+- `ELEVENLABS_API_KEY`
+- `ELEVENLABS_VOICE_ID`
+
+## Local Development
+
 ### Prerequisites
-- Node.js (v18+ recommended)
-- Package Manager (npm, yarn, or pnpm)
-- Relevant Environment Keys (.env.example provided)
 
-### Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/your-username/crew-sync.git
-dd crew-sync```
-2. Install dependent packages:
-```bash
-npm install```
-3. Configure environmental variables:
-```bash
-cp .env.example .env # Update your local database URI and API keys inside .env```
-4. Run the local development server:
-```bash
-npm run dev```
+- Node.js 20+
+- npm 10+
+- MongoDB (Atlas or local)
 
-## 🤝 Contributing
-We welcome contributions from the open-source community. Please read our [CONTRIBUTING.md](CONTRIBUTING.md) guidelines before opening a pull request or submitting an issue.
+### Install and run
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```bash
+npm install
+npm run dev
+```
 
-**What aspect of Crew Sync should we build out next?** We can dive straight into mapping out the database schema, creating the frontend UI layout for the bento dashboard, or writing the core APIs.
+Open `http://localhost:3000`.
+
+### Useful scripts
+
+```bash
+npm run dev
+npm run build
+npm run start
+npm run lint
+npm run test
+npm run test:watch
+```
+
+## Data and Runtime Notes
+
+- contract, escrow, payment, and lead persistence use MongoDB when configured
+- communications clients are currently stored in an in-memory demo store (`globalThis`) for rapid iteration
+- auth/session is currently local-storage + cookie based for MVP behavior
+- several integrations degrade gracefully when not configured (for example preview/demo behavior)
+
+
+## Repository Layout (High Level)
+
+```text
+src/
+	app/
+		api/                # all backend route handlers
+		acquisition/
+		communications/
+		contracts/
+		dashboard/
+		expenses/
+		payment/
+		settings/
+		sign-in/
+		sign-up/
+		signing/
+	components/
+		acquisition/
+		auth/
+		communications/
+		contracts/
+		dashboard/
+		navigation/
+		workspace/
+	lib/
+		acquisition/
+		communications/
+		db/
+		escrow/
+		payments/
+		auth-session.ts
+		contract-engine.ts
+		demo-db.ts
+```
+
+## Production Readiness Checklist
+
+- move auth to managed provider and hashed credentials
+- migrate demo client store to persistent database records
+- configure Stripe and Documenso webhooks in deployment environment
+- add environment validation on boot
+- add integration tests for contract, payment, and webhook pipelines

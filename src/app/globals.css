@@ -1,0 +1,382 @@
+@import "tailwindcss";
+
+:root {
+  /* Softer, highly curated Neo-brutalism palette — sophisticated tones instead of neon saturation */
+  --background: #FAF9F5;           /* warm off-white / alabaster canvas */
+  --foreground: #1E1E1E;           /* soft premium charcoal ink */
+  --muted: #C3BEF7;                /* soft dusty lavender */
+  --accent: #E07A5F;               /* warm terracotta / terracotta clay */
+  --secondary-accent: #F2CC8F;     /* sophisticated warm honey-butter */
+  --border: #1E1E1E;               /* coal border */
+  --surface: #ffffff;              /* contrast panel */
+  --ink: #1E1E1E;
+
+  /* Hard offset shadows — zero blur, zero spread with soft coal */
+  --neo-shadow-sm: 4px 4px 0 0 var(--border);
+  --neo-shadow-md: 8px 8px 0 0 var(--border);
+  --neo-shadow-lg: 12px 12px 0 0 var(--border);
+  --neo-shadow-xl: 16px 16px 0 0 var(--border);
+  --neo-shadow-accent: 8px 8px 0 0 var(--accent);
+  --neo-shadow-yellow: 8px 8px 0 0 var(--secondary-accent);
+  --neo-shadow-violet: 8px 8px 0 0 var(--muted);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-secondary-accent: var(--secondary-accent);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background);
+  /* Halftone dot texture — extremely subtle and soft */
+  background-image:
+    radial-gradient(rgba(30, 30, 30, 0.04) 1.3px, transparent 1.3px),
+    radial-gradient(rgba(30, 30, 30, 0.04) 1.3px, transparent 1.3px);
+  background-size: 28px 28px, 28px 28px;
+  background-position: 0 0, 14px 14px;
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-body), "Space Grotesk", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), "Space Grotesk", system-ui, sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+}
+
+::selection {
+  background: var(--secondary-accent);
+  color: var(--foreground);
+}
+
+@layer utilities {
+  /* Typography */
+  .font-heading {
+    font-family: var(--font-heading), "Space Grotesk", system-ui, sans-serif;
+    font-weight: 900;
+  }
+
+  .font-body {
+    font-family: var(--font-body), "Space Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 2px var(--border);
+    color: transparent;
+  }
+
+  .text-stroke-thin {
+    -webkit-text-stroke: 1.5px var(--border);
+    color: transparent;
+  }
+
+  .text-shadow-hard {
+    text-shadow: 4px 4px 0 var(--border);
+  }
+
+  .text-shadow-hard-lg {
+    text-shadow: 6px 6px 0 var(--border);
+  }
+
+  /* Core neo-brutalism card — bordered, sharp corners, hard shadow */
+  .neo-card {
+    background: var(--surface);
+    border: 4px solid var(--border);
+    border-radius: 0;
+    box-shadow: var(--neo-shadow-md);
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  }
+
+  .neo-card-lift:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: var(--neo-shadow-lg);
+  }
+
+  .neo-card-sm {
+    background: var(--surface);
+    border: 3px solid var(--border);
+    border-radius: 0;
+    box-shadow: var(--neo-shadow-sm);
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  }
+
+  .neo-card-sm:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 var(--border);
+  }
+
+  .neo-card-xl {
+    background: var(--surface);
+    border: 4px solid var(--border);
+    border-radius: 0;
+    box-shadow: var(--neo-shadow-lg);
+  }
+
+  /* Buttons — mechanical press-down */
+  .neo-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border: 3px solid var(--border);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--foreground);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    box-shadow: var(--neo-shadow-sm);
+    transition: transform 100ms ease-out, box-shadow 100ms ease-out, background 100ms ease-out;
+    cursor: pointer;
+  }
+
+  .neo-btn:hover {
+    background: var(--secondary-accent);
+  }
+
+  .neo-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 0 var(--border);
+  }
+
+  .neo-btn-primary {
+    background: var(--accent);
+    color: var(--foreground);
+  }
+
+  .neo-btn-primary:hover {
+    background: #E59078; /* soft terracotta hover */
+  }
+
+  .neo-btn-secondary {
+    background: var(--secondary-accent);
+    color: var(--foreground);
+  }
+
+  .neo-btn-secondary:hover {
+    background: #F5D59E; /* soft ochre hover */
+  }
+
+  .neo-btn-violet {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+
+  .neo-btn-violet:hover {
+    background: #D2CFFE; /* soft lavender hover */
+  }
+
+  .neo-btn-dark {
+    background: var(--foreground);
+    color: var(--surface);
+  }
+
+  .neo-btn-dark:hover {
+    background: #333333;
+    color: var(--secondary-accent);
+  }
+
+  .neo-btn-ghost {
+    background: transparent;
+    border: 3px solid transparent;
+    box-shadow: none;
+  }
+
+  .neo-btn-ghost:hover {
+    border-color: var(--border);
+    background: var(--secondary-accent);
+    box-shadow: var(--neo-shadow-sm);
+  }
+
+  /* Inputs — bold borders, yellow focus */
+  .neo-input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 3px solid var(--border);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--foreground);
+    font-weight: 700;
+    font-size: 1rem;
+    outline: none;
+    transition: background 150ms ease-out, box-shadow 150ms ease-out;
+  }
+
+  .neo-input::placeholder {
+    color: rgba(30, 30, 30, 0.4);
+    font-weight: 700;
+  }
+
+  .neo-input:focus {
+    background: var(--secondary-accent);
+    box-shadow: var(--neo-shadow-sm);
+  }
+
+  /* Badges / tags */
+  .neo-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border: 3px solid var(--border);
+    border-radius: 0;
+    background: var(--surface);
+    color: var(--foreground);
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .neo-tag-accent {
+    background: var(--accent);
+    color: var(--foreground);
+  }
+
+  .neo-tag-yellow {
+    background: var(--secondary-accent);
+    color: var(--foreground);
+  }
+
+  .neo-tag-violet {
+    background: var(--muted);
+    color: var(--foreground);
+  }
+
+  .neo-tag-dark {
+    background: var(--foreground);
+    color: var(--secondary-accent);
+  }
+
+  .neo-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    border: 3px solid var(--border);
+    border-radius: 9999px;
+    background: var(--surface);
+    color: var(--foreground);
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* Section block with optional accent fill */
+  .neo-block {
+    border: 4px solid var(--border);
+    border-radius: 0;
+    box-shadow: var(--neo-shadow-md);
+  }
+
+  /* Shadow helpers */
+  .neo-shadow-sm { box-shadow: var(--neo-shadow-sm); }
+  .neo-shadow-md { box-shadow: var(--neo-shadow-md); }
+  .neo-shadow-lg { box-shadow: var(--neo-shadow-lg); }
+  .neo-shadow-xl { box-shadow: var(--neo-shadow-xl); }
+  .neo-shadow-white {
+    box-shadow: 8px 8px 0 0 #fff;
+  }
+  .neo-shadow-accent { box-shadow: var(--neo-shadow-accent); }
+  .neo-shadow-yellow { box-shadow: var(--neo-shadow-yellow); }
+  .neo-shadow-violet { box-shadow: var(--neo-shadow-violet); }
+
+  /* Background pattern helpers — muted to keep it clean */
+  .pattern-halftone {
+    background-image: radial-gradient(rgba(30, 30, 30, 0.1) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+
+  .pattern-grid {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(30, 30, 30, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 30, 30, 0.08) 1px, transparent 1px);
+  }
+
+  .pattern-dots-lg {
+    background-image: radial-gradient(circle, rgba(30, 30, 30, 0.12) 2px, transparent 2.5px);
+    background-size: 30px 30px;
+  }
+
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(30, 30, 30, 0.08) 0 2px,
+      transparent 2px 16px
+    );
+  }
+
+  /* Animations */
+  @keyframes neo-spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: neo-spin-slow 12s linear infinite;
+  }
+
+  @keyframes neo-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: neo-marquee 28s linear infinite;
+  }
+
+  @keyframes neo-wiggle {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+  }
+
+  .animate-wiggle {
+    animation: neo-wiggle 1.4s ease-in-out infinite;
+  }
+
+  /* Legacy shim — pages still reference these during migration */
+  .wobbly, .wobbly-md, .wobbly-sm { border-radius: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-marquee,
+  .animate-wiggle {
+    animation: none;
+  }
+  .neo-card,
+  .neo-card-sm,
+  .neo-btn {
+    transition: none;
+  }
+}
